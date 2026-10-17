@@ -96,6 +96,17 @@
   @media mq-normal
     flex-flow: row wrap
 
+.intro-warning
+  font-size: 1.1 rem
+  display: flex
+  flex-flow: column
+  margin: 25px
+  padding: 20px
+  border: 1px solid #ffebee
+  border-left: 5px solid #ddd
+  background-color: #ffebee
+  border-left-color: hsl(0, 100%, 50%)
+
 .intro-feature-wrap
   padding-top: 20px
   @media mq-tablet
@@ -136,6 +147,7 @@
 #intro-cmd-wrap
   max-width: 700px
   background: #eee
+  background: light-dark(#eee, #282828)
   padding: 15px 0
   margin: 25px gutter-width * -1 0
   @media mq-normal
@@ -175,7 +187,9 @@
 
 #theme-link
   color: color-border
+  color: light-dark(color-border, color-border-dark)
   border-color: color-border
+  border-color: light-dark(color-border, color-border-dark)
   &:hover
     background: @border-color
     color: lighten(color-navy, 10%)

@@ -1,6 +1,7 @@
 ---
 title: Документация
 ---
+
 Добро пожаловать в документацию Hexo. Если возникнут проблемы при использовании Hexo, попробуйте поискать в [руководстве по решению проблем](troubleshooting.html), поднять вопрос на [GitHub](https://github.com/hexojs/hexo/issues) или завести тему в группе [Google Group](https://groups.google.com/group/hexo).
 
 ## Что есть Hexo?
@@ -11,6 +12,8 @@ Hexo — это быстрый, простой и мощный фреймвор�
 
 Настройка Hexo занимает всего несколько минут. Если вы столкнулись с проблемой и не можете найти решение здесь, пожалуйста, отправьте вопрос на [GitHub](https://github.com/hexojs/hexo/issues), и я постараюсь разрешить её.
 
+{% youtube ARted4RniaU %}
+
 ### Требования
 
 Установка Hexo довольно проста. Однако сперва нужно установить пару вещей:
@@ -20,15 +23,7 @@ Hexo — это быстрый, простой и мощный фреймвор�
 
 Если всё это уже есть, поздравляю! Просто установите Hexo с помощью npm:
 
-``` bash
-$ npm install -g hexo-cli
-```
-
 Если нет, выполните следующие действия, чтобы установить всё, что требуется.
-
-{% note warn Для пользователей Mac %}
-Вы можете столкнуться с проблемами при компиляции. Пожалуйста, сначала установите Xcode из магазина App Store. После установки откройте xcode и перейдите в **Настройки -> Загрузки -> Командная строка -> Установить** (**Preferences -> Download -> Command Line Tools -> Install**), чтобы установить утилиту командной строки.
-{% endnote %}
 
 ### Установка Git
 
@@ -37,9 +32,13 @@ $ npm install -g hexo-cli
 - Linux (Ubuntu, Debian): `sudo apt-get install git-core`
 - Linux (Fedora, Red Hat, CentOS): `sudo yum install git-core`
 
+{% note warn Для пользователей Mac %}
+Вы можете столкнуться с проблемами при компиляции. Пожалуйста, сначала установите Xcode из магазина App Store. После установки откройте xcode и перейдите в **Настройки -> Загрузки -> Командная строка -> Установить** (**Preferences -> Download -> Command Line Tools -> Install**), чтобы установить утилиту командной строки.
+{% endnote %}
+
 ### Установка Node.js
 
-Node.js предоставляет [официальный установщик](http://nodejs.org/en/download /) для большинства платформ.
+Node.js предоставляет \[официальный установщик\](http://nodejs.org/en/download /) для большинства платформ.
 
 Альтернативные методы установки:
 
@@ -55,7 +54,7 @@ nvs также рекомендуется для Mac и Linux, чтобы изб
 {% endnote %}
 
 {% note warn Mac / Linux %}
-Если вы столкнулись с ошибкой разрешения `EACCES`обходному при попытке установить Hexo, пожалуйста, следуйте [обходному пути](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally ) предоставляенным npmjs; переопределение с помощью root/sudo крайне не рекомендуется.
+Если вы столкнулись с ошибкой разрешения `EACCES`обходному при попытке установить Hexo, пожалуйста, следуйте [обходному пути](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) предоставляенным npmjs; переопределение с помощью root/sudo крайне не рекомендуется.
 {% endnote %}
 
 {% note info Linux %}
@@ -66,11 +65,30 @@ nvs также рекомендуется для Mac и Linux, чтобы изб
 
 После установки всех требуемых программ, можно устанавливать Hexo с помощью npm.
 
-``` bash
+```bash
 $ npm install -g hexo-cli
 ```
 
-### Минимально необходимая версия Node.js
+### Advanced installation and usage
+
+Advanced users may prefer to install and use `hexo` package instead.
+
+```bash
+$ npm install hexo
+```
+
+Once installed, you can run Hexo in two ways:
+
+1. `npx hexo <command>`
+2. Linux users can set relative path of `node_modules/` folder:
+
+```bash
+echo 'PATH="$PATH:./node_modules/.bin"' >> ~/.profile
+```
+
+then run Hexo using `hexo <command>`
+
+### необходимая версия Node.js
 
 Если вы застряли с устаревшими версиями Node.js , вы можете рассмотреть возможность установки предыдущей версии Hexo.
 
@@ -78,13 +96,16 @@ $ npm install -g hexo-cli
 
 Мы настоятельно рекомендуем всегда устанавливать [последнюю версию](https://www.npmjs.com/package/hexo?activeTab=версии) Hexo и [рекомендуемую версию](#Requirements) Node.js , когда это возможно.
 
-Hexo версия | Минимальная версия Node.js
---- | ---
-6.0+ | 12.13.0
-5.0+ | 10.13.0
-4.1 - 4.2 | 8.10
-4.0 | 8.6
-3.3 - 3.9 | 6.9
-3.2 - 3.3 | 0.12
-3.0 - 3.1 | 0.10 или iojs
-0.0.1 - 2.8 | 0.10
+| Hexo version | Minimum (Node.js version) | Less than (Node.js version) |
+| ------------ | ------------------------- | --------------------------- |
+| 8.0+         | 20.19.0                   | latest                      |
+| 7.0+         | 14.0.0                    | latest                      |
+| 6.2+         | 12.13.0                   | latest                      |
+| 6.0+         | 12.13.0                   | 18.5.0                      |
+| 5.0+         | 10.13.0                   | 12.0.0                      |
+| 4.1 - 4.2    | 8.10                      | 10.0.0                      |
+| 4.0          | 8.6                       | 8.10.0                      |
+| 3.3 - 3.9    | 6.9                       | 8.0.0                       |
+| 3.2 - 3.3    | 0.12                      | unknown                     |
+| 3.0 - 3.1    | 0.10 or iojs              | unknown                     |
+| 0.0.1 - 2.8  | 0.10                      | unknown                     |
